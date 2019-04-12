@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Селекторы стилей</title>
+</head>
+<body>
+	<ul>
+		<li>item</li>
+		<li>item</li>
+		<li>item</li>
+		<li>item</li>
+		<li>item</li>
+	</ul>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>	
+<script type="text/javascript">
+
+/*
+** h1 - ищем элементы по имени тега
+** #container - ищем элемент по идентификатору «id=container»
+** div#container - ищем <div> c идентификатором «container»
+** .news - выбираем элементы по имени класса «class="news"» 
+** div.news - все элементы <div> c классом «news» 
+** #wrap .post - ищем все элементы с классом «post» внутри элемента с «id="wrap"»
+** .cls1.cls2 - выбираем элементы с двумя классами «class="cls1 cls2"»
+** h1,h2,.posts - перечисление селекторов, выберем всё перечисленное
+** .post > h2 - выбираем элементы <h2>, которые являются непосредственными потомками э
+** a + span	- будут выбраны все элементы <span> следующие сразу за элементом <a>
+** a[href^=http] - будут выбраны все элементы <a> у которых атрибут «href» начинается с «http» 
+*/	
+
+var collection = document.getElementsByIdTagName('li');
+
+for (var i = 0; i < collection.length; i++) {
+	collection[i].style.backround = "red";
+	collection[i].classList.add("one");
+	collection[i].classList.remove("one");
+}
+
+$("li").css("backround", "red").addClass("one").removeClass("two").toogleClass("three");
+$("li").css("backround", "red").filter("one").css("backround","blue");
+
+var collection = document.getElementByTagName('button');
+for (var i = 0; i < collection; i++){
+		collection[i].addEventListener('click', function(){
+			console.log("tru-lya-lya");
+	});
+}
+
+$("#selector").on("click", function() {
+    console.log("tru-lya-lya");
+});
+
+%("li:first-child"); // первый элемент
+%("li:last-child"); // второй элемент
+%("li:last"); // последжний элемент 
+%("li:event"); // четные элементы
+%("li:add"); // не четные элементы
+
+$("p").is("span"); // проверка 
+$("p").is(":contains('item')"); // проверка 
+$("p").is(":visible"); // показать
+$("p").is(":hidden"); // скрыть
+
+</script>
+</body>
+</html>

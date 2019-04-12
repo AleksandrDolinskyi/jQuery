@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.wrap {
+			display: block;
+			background-color: red;
+			height: 500px;
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap"></div>
+<button id="but1">Start Animation</button>
+<button id="but2">Start Animation</button>
+<button id="but3">Start Animation</button>
+<div id="one"></div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$('wrap').hide(); // скрыть
+	$('wrap').show(); // показать
+	$('wrap').toggle(); // переключить	
+	$('wrap').slideUp(); // уменьшает высоту	
+	$('wrap').slideFown(); // увеличивает высоту	
+	$('wrap').slideToogle(); // переключает
+	$('wrap').fade(); // позрачность
+	$('wrap').fadeIn(); // установить позрачность
+	$('wrap').fadeTo(); // установить позрачность
+	$('wrap').fadeOut(); // скрыть позрачность
+	$('wrap').fadeDown(); // скрыть позрачность
+	$('wrap').fadeToogle(); // переключть
+	
+	// очередь
+	$('#one').animate({
+		left:'+=500'
+	},{duration: 1500, queue:'myOne'}.animate({
+		top:'+=500'
+	},{duration:1000, queue:'myTwo'})); 
+	function animate1(){
+		$('#one').dequeue('myOne');
+	}
+	function animate2(){
+		$('#one').dequeue('myTwo');
+	}
+	function stopAnim(){
+		$('#one').stop();
+	}
+	$('#but1').on('click', animate1);
+	$('#but2').on('click', animate2);
+	$('#but3').on('click', stopAnim);
+
+	function animateThis(){
+		$('#one').animate({
+			width: '+=400px'
+		},1000, function(){
+			$(this).animate({
+				width:'-=400px'
+			},1000 );
+		}); 
+	}
+
+	function animateThis(){
+		$('one').animate({
+			width:0,
+			height:0.
+			opacity:0
+		}1000, function(){
+			$('this').css('display','none');
+		});
+	}
+
+	function animateThis(){
+		$('#one').animate({
+			left: '+=500px'
+		},1000).animate({
+			top: '+=500px'
+		},1000).animate({
+			background-color:'green'
+		},1500).animate({
+			top:0.
+			left:0,
+			background-color: 'red'
+		});
+
+	$('#but').on('click'. animateThis);
+
+</script>
+</body>
+</html>
